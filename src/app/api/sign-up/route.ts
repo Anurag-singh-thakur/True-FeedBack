@@ -32,7 +32,7 @@ export async function POST(request: Request) {
                     message: "User already exist with this email"
                 }, { status: 400 })
             } else {
-                const hashedPassword = await bcrypt.hash(password, 10)
+                const hashedPassword = await   bcrypt.hash(password, 10)
                 existingUserByEmail.password = hashedPassword;
                 existingUserByEmail.verifyCode = verifyCode;
                 existingUserByEmail.verifyCodeExpiry = new Date(Date.now() + 3600000)
